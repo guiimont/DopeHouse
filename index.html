@@ -1,0 +1,804 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Dope House Rio | Clube Fitness em Itaipu</title>
+  <meta name="description" content="Dope House Rio: clube fitness em Itaipu, Niteroi, com treino experimental, preparacao fisica, yoga, jiu-jitsu, escalada, pilates, fisioterapia e nutricao.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700;800;900&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --ink: #061b0b;
+      --deep: #001707;
+      --green: #0d3318;
+      --gold: #dfcf91;
+      --gold-strong: #f0dc93;
+      --paper: #f7f0d5;
+      --muted: #b7ad7d;
+      --line: rgba(223, 207, 145, .28);
+      --white: #fffaf0;
+      --danger: #d94435;
+    }
+
+    * { box-sizing: border-box; }
+
+    html {
+      scroll-behavior: smooth;
+      background: var(--deep);
+    }
+
+    body {
+      margin: 0;
+      color: var(--white);
+      background:
+        radial-gradient(circle at 12% 18%, rgba(217, 68, 53, .14), transparent 28rem),
+        linear-gradient(145deg, #001306 0%, #082611 46%, #001707 100%);
+      font-family: Poppins, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+      line-height: 1.5;
+    }
+
+    a { color: inherit; text-decoration: none; }
+
+    .page {
+      min-height: 100vh;
+      overflow: hidden;
+    }
+
+    .nav {
+      position: sticky;
+      top: 0;
+      z-index: 10;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 1rem;
+      padding: .85rem clamp(1rem, 4vw, 4rem);
+      border-bottom: 1px solid var(--line);
+      background: rgba(0, 23, 7, .82);
+      backdrop-filter: blur(16px);
+    }
+
+    .brand {
+      display: flex;
+      align-items: center;
+      gap: .75rem;
+      min-width: 0;
+      font-weight: 900;
+      letter-spacing: .04em;
+      text-transform: uppercase;
+    }
+
+    .brand-logo {
+      width: 3.2rem;
+      height: 3.2rem;
+      flex: 0 0 auto;
+      border-radius: 999px;
+      object-fit: cover;
+      box-shadow: 0 0 0 1px var(--gold);
+    }
+
+    .brand span:last-child {
+      overflow: hidden;
+      text-overflow: ellipsis;
+      white-space: nowrap;
+    }
+
+    .nav-links {
+      display: flex;
+      align-items: center;
+      gap: .45rem;
+      color: var(--muted);
+      font-size: .9rem;
+      font-weight: 750;
+    }
+
+    .nav-links a {
+      padding: .65rem .8rem;
+      border-radius: .35rem;
+    }
+
+    .nav-links a:hover {
+      color: var(--gold-strong);
+      background: rgba(223, 207, 145, .09);
+    }
+
+    .cta {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      min-height: 3rem;
+      padding: .85rem 1.1rem;
+      border: 1px solid var(--gold);
+      border-radius: .25rem;
+      background: var(--gold);
+      color: #071808;
+      font-weight: 900;
+      text-transform: uppercase;
+      letter-spacing: .02em;
+      box-shadow: 0 1rem 2rem rgba(0, 0, 0, .22);
+    }
+
+    .cta:hover { background: var(--gold-strong); }
+
+    .cta.secondary {
+      background: transparent;
+      color: var(--gold);
+      box-shadow: none;
+    }
+
+    .hero {
+      min-height: calc(100vh - 4.8rem);
+      display: grid;
+      grid-template-columns: minmax(0, 1fr) minmax(22rem, .9fr);
+      gap: clamp(2rem, 5vw, 5rem);
+      align-items: center;
+      padding: clamp(2rem, 5vw, 5rem) clamp(1rem, 5vw, 5.5rem) 3rem;
+    }
+
+    .eyebrow {
+      color: var(--gold);
+      font-size: .85rem;
+      font-weight: 900;
+      letter-spacing: .14em;
+      text-transform: uppercase;
+    }
+
+    h1,
+    h2,
+    h3,
+    .display {
+      margin: 0;
+      font-weight: 900;
+      line-height: .96;
+      letter-spacing: 0;
+      text-transform: uppercase;
+    }
+
+    h1 {
+      max-width: 11.5ch;
+      margin-top: .65rem;
+      color: var(--paper);
+      font-size: clamp(3.1rem, 6.4vw, 5.65rem);
+      text-shadow: .04em .04em 0 rgba(217, 68, 53, .28);
+    }
+
+    .hero-copy {
+      max-width: 44rem;
+      margin: 1.4rem 0 0;
+      color: rgba(255, 250, 240, .82);
+      font-size: clamp(1rem, 2vw, 1.28rem);
+    }
+
+    .hero-actions {
+      display: flex;
+      flex-wrap: wrap;
+      gap: .75rem;
+      margin-top: 1.8rem;
+    }
+
+    .stats {
+      display: grid;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap: .75rem;
+      margin-top: 2rem;
+      max-width: 40rem;
+    }
+
+    .stat {
+      border: 1px solid var(--line);
+      border-radius: .4rem;
+      padding: .9rem;
+      background: rgba(0, 0, 0, .16);
+    }
+
+    .stat strong {
+      display: block;
+      color: var(--gold);
+      font-size: 1.45rem;
+      line-height: 1;
+    }
+
+    .stat span {
+      display: block;
+      margin-top: .35rem;
+      color: rgba(255, 250, 240, .7);
+      font-size: .82rem;
+      font-weight: 750;
+    }
+
+    .hero-visual {
+      position: relative;
+      min-height: 34rem;
+      border: 1px solid var(--line);
+      background:
+        radial-gradient(circle at 50% 24%, rgba(223, 207, 145, .18), transparent 16rem),
+        linear-gradient(160deg, rgba(223, 207, 145, .12), transparent 42%),
+        linear-gradient(0deg, rgba(0, 0, 0, .3), rgba(0, 0, 0, .04));
+      box-shadow: 0 2rem 5rem rgba(0, 0, 0, .32);
+      overflow: hidden;
+      padding: clamp(1rem, 3vw, 1.6rem);
+    }
+
+    .hero-visual::before {
+      content: "";
+      position: absolute;
+      inset: 0;
+      background:
+        repeating-linear-gradient(90deg, rgba(255, 250, 240, .08) 0 1px, transparent 1px 4.5rem),
+        linear-gradient(180deg, transparent, rgba(0, 23, 7, .95));
+    }
+
+    .hero-visual-inner {
+      position: relative;
+      z-index: 1;
+      display: flex;
+      min-height: calc(34rem - 3.2rem);
+      flex-direction: column;
+      justify-content: space-between;
+      gap: 1.25rem;
+    }
+
+    .hero-logo-lockup {
+      display: grid;
+      place-items: center;
+      min-height: 16rem;
+      border: 1px solid rgba(223, 207, 145, .22);
+      background: rgba(0, 12, 4, .58);
+    }
+
+    .hero-logo-lockup img {
+      width: min(70%, 18rem);
+      aspect-ratio: 1;
+      border-radius: 999px;
+      object-fit: cover;
+      box-shadow: 0 1.4rem 3rem rgba(0, 0, 0, .42);
+    }
+
+    .poster {
+      display: grid;
+      gap: .85rem;
+    }
+
+    .poster-line {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 1rem;
+      min-height: 4rem;
+      padding: .8rem 1rem;
+      border: 1px solid rgba(223, 207, 145, .45);
+      background: rgba(247, 240, 213, .92);
+      color: #071808;
+      font-weight: 900;
+      text-transform: uppercase;
+      letter-spacing: 0;
+    }
+
+    .poster-line small {
+      color: #315a33;
+      font-family: Poppins, sans-serif;
+      font-weight: 900;
+    }
+
+    section {
+      padding: clamp(3rem, 7vw, 6rem) clamp(1rem, 5vw, 5.5rem);
+      border-top: 1px solid var(--line);
+    }
+
+    .section-head {
+      display: flex;
+      align-items: end;
+      justify-content: space-between;
+      gap: 2rem;
+      margin-bottom: 1.5rem;
+    }
+
+    h2 {
+      max-width: 12ch;
+      color: var(--paper);
+      font-size: clamp(2.4rem, 6vw, 5rem);
+    }
+
+    .section-head p {
+      max-width: 34rem;
+      margin: 0;
+      color: rgba(255, 250, 240, .72);
+    }
+
+    .grid {
+      display: grid;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap: 1rem;
+    }
+
+    .card {
+      min-height: 13rem;
+      border: 1px solid var(--line);
+      border-radius: .45rem;
+      padding: 1.1rem;
+      background: rgba(0, 0, 0, .18);
+    }
+
+    .card h3 {
+      color: var(--gold);
+      font-size: clamp(1.3rem, 2.5vw, 1.75rem);
+      line-height: 1.08;
+    }
+
+    .card p {
+      margin: .85rem 0 0;
+      color: rgba(255, 250, 240, .72);
+    }
+
+    .split {
+      display: grid;
+      grid-template-columns: minmax(0, .85fr) minmax(0, 1.15fr);
+      gap: 1rem;
+      align-items: stretch;
+    }
+
+    .quote {
+      display: flex;
+      min-height: 100%;
+      flex-direction: column;
+      justify-content: space-between;
+      border-left: .45rem solid var(--danger);
+      background: rgba(247, 240, 213, .92);
+      color: #071808;
+      padding: 1.4rem;
+    }
+
+    .quote strong {
+      color: #071808;
+      font-size: 1.25rem;
+      line-height: 1.2;
+    }
+
+    .quote span {
+      display: block;
+      margin-top: 1.5rem;
+      font-weight: 900;
+      color: #315a33;
+    }
+
+    .timeline {
+      display: grid;
+      gap: .75rem;
+    }
+
+    .step {
+      display: grid;
+      grid-template-columns: 4.2rem minmax(0, 1fr);
+      gap: 1rem;
+      padding: 1rem;
+      border: 1px solid var(--line);
+      border-radius: .45rem;
+      background: rgba(0, 0, 0, .16);
+    }
+
+    .step b {
+      color: var(--gold);
+      font-size: 2rem;
+      line-height: 1;
+    }
+
+    .step p {
+      margin: .3rem 0 0;
+      color: rgba(255, 250, 240, .72);
+    }
+
+    .app-preview {
+      display: grid;
+      grid-template-columns: minmax(0, .9fr) minmax(18rem, .55fr);
+      gap: clamp(1.5rem, 4vw, 3rem);
+      align-items: center;
+      background: linear-gradient(135deg, rgba(223, 207, 145, .12), rgba(217, 68, 53, .09));
+    }
+
+    .phone {
+      width: min(100%, 23rem);
+      justify-self: center;
+      border: 1px solid rgba(223, 207, 145, .55);
+      border-radius: 1.6rem;
+      padding: .85rem;
+      background: #001006;
+      box-shadow: 0 2rem 4rem rgba(0, 0, 0, .38);
+    }
+
+    .screen {
+      min-height: 30rem;
+      border-radius: 1rem;
+      padding: 1rem;
+      background: var(--paper);
+      color: #071808;
+    }
+
+    .app-story {
+      display: grid;
+      grid-template-columns: repeat(4, minmax(0, 1fr));
+      gap: .75rem;
+      margin-top: 1.25rem;
+    }
+
+    .app-story-item {
+      min-height: 8rem;
+      border: 1px solid var(--line);
+      border-radius: .45rem;
+      padding: .85rem;
+      background: rgba(0, 0, 0, .18);
+    }
+
+    .app-story-item b {
+      display: block;
+      color: var(--gold);
+      font-size: .74rem;
+      letter-spacing: .08em;
+      text-transform: uppercase;
+    }
+
+    .app-story-item span {
+      display: block;
+      margin-top: .5rem;
+      color: rgba(255, 250, 240, .78);
+      font-size: .88rem;
+      font-weight: 700;
+      line-height: 1.35;
+    }
+
+    .screen-top {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 1rem;
+      font-weight: 950;
+    }
+
+    .slot {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: .8rem;
+      margin-top: .75rem;
+      padding: .9rem;
+      border: 1px solid rgba(7, 24, 8, .15);
+      border-radius: .4rem;
+      background: #fffaf0;
+    }
+
+    .slot strong { display: block; }
+    .slot small { color: #557059; font-weight: 800; }
+
+    .pill {
+      flex: 0 0 auto;
+      padding: .45rem .55rem;
+      border-radius: 999px;
+      background: var(--green);
+      color: var(--gold);
+      font-size: .75rem;
+      font-weight: 900;
+    }
+
+    .final {
+      display: grid;
+      grid-template-columns: minmax(0, 1fr) auto;
+      gap: 1.5rem;
+      align-items: center;
+      background: var(--paper);
+      color: #071808;
+    }
+
+    .final h2 {
+      color: #071808;
+    }
+
+    .final p {
+      max-width: 43rem;
+      color: #315a33;
+      font-size: 1.08rem;
+    }
+
+    .final .cta {
+      background: #071808;
+      color: var(--gold);
+      border-color: #071808;
+    }
+
+    .footer {
+      padding: 1.2rem clamp(1rem, 5vw, 5.5rem);
+      color: rgba(255, 250, 240, .58);
+      font-size: .9rem;
+    }
+
+    @media (max-width: 900px) {
+      .nav {
+        position: static;
+      }
+
+      .nav-links {
+        display: none;
+      }
+
+      .hero,
+      .split,
+      .app-preview,
+      .final {
+        grid-template-columns: 1fr;
+      }
+
+      .hero {
+        min-height: auto;
+      }
+
+      .hero-visual {
+        min-height: 29rem;
+      }
+
+      .section-head {
+        display: block;
+      }
+
+      .section-head p {
+        margin-top: 1rem;
+      }
+
+      .grid {
+        grid-template-columns: 1fr;
+      }
+
+      .app-story {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+      }
+    }
+
+    @media (max-width: 560px) {
+      .brand span:last-child {
+        display: none;
+      }
+
+      .brand-logo {
+        width: 3.4rem;
+        height: 3.4rem;
+      }
+
+      .nav {
+        gap: .75rem;
+      }
+
+      h1 {
+        max-width: 9.5ch;
+        font-size: clamp(2.35rem, 11.2vw, 2.9rem);
+      }
+
+      .stats {
+        grid-template-columns: 1fr;
+      }
+
+      .hero-actions,
+      .final .cta {
+        width: 100%;
+      }
+
+      .cta {
+        width: 100%;
+      }
+
+      .app-story {
+        grid-template-columns: 1fr;
+      }
+
+      .poster-line {
+        align-items: flex-start;
+        flex-direction: column;
+        gap: .25rem;
+      }
+    }
+  </style>
+</head>
+<body>
+  <div class="page">
+    <header class="nav" aria-label="Navegacao principal">
+      <a class="brand" href="#top" aria-label="Dope House Rio">
+        <img class="brand-logo" src="assets/logo-dope.jpg" alt="Dope House Rio">
+        <span>Dope House Rio</span>
+      </a>
+      <nav class="nav-links" aria-label="Secoes">
+        <a href="#modalidades">Modalidades</a>
+        <a href="#experiencia">Experiencia</a>
+        <a href="#app">App</a>
+      </nav>
+      <a class="cta" href="https://agendamento.nextfit.com.br/a9f4bfb0-14bb-412c-a72f-02994434995d">Treino experimental</a>
+    </header>
+
+    <main id="top">
+      <section class="hero" aria-labelledby="hero-title">
+        <div>
+          <div class="eyebrow">Clube fitness em Itaipu, Niteroi</div>
+          <h1 id="hero-title">Treino, casa e comunidade</h1>
+          <p class="hero-copy">A Dope House Rio une preparacao fisica, experiencias e modalidades parceiras em um espaco boutique perto da Serra da Tiririca.</p>
+          <div class="hero-actions">
+            <a class="cta" href="https://agendamento.nextfit.com.br/a9f4bfb0-14bb-412c-a72f-02994434995d">Agendar experimental</a>
+            <a class="cta secondary" href="https://wa.me/5521968654863">Falar no WhatsApp</a>
+          </div>
+          <div class="stats" aria-label="Destaques">
+            <div class="stat">
+              <strong>4,9</strong>
+              <span>avaliacao no Google</span>
+            </div>
+            <div class="stat">
+              <strong>54</strong>
+              <span>avaliacoes publicas</span>
+            </div>
+            <div class="stat">
+              <strong>7+</strong>
+              <span>experiencias na casa</span>
+            </div>
+          </div>
+        </div>
+
+        <div class="hero-visual" aria-label="Identidade visual Dope House Rio">
+          <div class="hero-visual-inner">
+            <div class="hero-logo-lockup">
+              <img src="assets/logo-dope.jpg" alt="Logo Dope House Rio">
+            </div>
+            <div class="poster" aria-label="Atalhos principais">
+              <div class="poster-line"><span>Treino experimental</span><small>NextFit</small></div>
+              <div class="poster-line"><span>Dope training</span><small>Jardim</small></div>
+              <div class="poster-line"><span>Yoga, luta e escalada</span><small>Casa</small></div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section id="modalidades" aria-labelledby="modalidades-title">
+        <div class="section-head">
+          <h2 id="modalidades-title">Tudo na casa</h2>
+          <p>Uma vitrine simples para quem chega pelo Instagram ou Google entender a experiencia, escolher a modalidade certa e partir direto para o treino experimental.</p>
+        </div>
+        <div class="grid">
+          <article class="card">
+            <h3>Preparacao fisica</h3>
+            <p>Treinos funcionais e acompanhamento para evolucao real, com chamada direta para experimental.</p>
+          </article>
+          <article class="card">
+            <h3>Jiu-jitsu</h3>
+            <p>Parceria Gracie Barra Itacoatiara com fluxo separado para interessados na modalidade.</p>
+          </article>
+          <article class="card">
+            <h3>Yoga</h3>
+            <p>Praticas de mobilidade, respiracao e recuperacao para complementar a rotina de treino.</p>
+          </article>
+          <article class="card">
+            <h3>Escalada</h3>
+            <p>Granito Escalada como experiencia de forca, tecnica e comunidade dentro do ecossistema.</p>
+          </article>
+          <article class="card">
+            <h3>Pilates e fisio</h3>
+            <p>Instituto ETHOS para cuidado, prevencao e reabilitacao com uma jornada mais clara.</p>
+          </article>
+          <article class="card">
+            <h3>Nutricao</h3>
+            <p>Encaminhamento para acompanhamento nutricional, fechando o ciclo treino, saude e performance.</p>
+          </article>
+        </div>
+      </section>
+
+      <section id="experiencia" aria-labelledby="experiencia-title">
+        <div class="split">
+          <div class="quote">
+            <strong>"Excelente instalacoes, equipe nota mil e ambiente muito agradavel e acolhedor."</strong>
+            <span>Comentario publico destacado no Google</span>
+          </div>
+          <div>
+            <div class="section-head">
+              <h2 id="experiencia-title">Do clique ao treino</h2>
+              <p>Uma experiencia digital enxuta organiza a captacao atual e deixa o caminho mais claro para o aluno.</p>
+            </div>
+            <div class="timeline">
+              <div class="step">
+                <b>01</b>
+                <div>
+                  <strong>Aluno chega pelo Instagram ou Google</strong>
+                  <p>Pagina carrega rapido, com identidade Dope House e prova social logo no primeiro bloco.</p>
+                </div>
+              </div>
+              <div class="step">
+                <b>02</b>
+                <div>
+                  <strong>Escolhe modalidade sem friccao</strong>
+                  <p>Cada interesse leva para o canal certo: NextFit, WhatsApp ou parceiro responsavel.</p>
+                </div>
+              </div>
+              <div class="step">
+                <b>03</b>
+                <div>
+                  <strong>Vira relacionamento recorrente</strong>
+                  <p>A mesma base pode evoluir para app com agenda, check-in, planos, eventos e comunicados.</p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section id="app" class="app-preview" aria-labelledby="app-title">
+        <div>
+          <div class="eyebrow">Proxima etapa da parceria</div>
+          <h2 id="app-title">A casa na mao do aluno</h2>
+          <p class="hero-copy">Se a landing melhora a entrada, o app melhora a permanencia. Ele reduz tarefas repetitivas, aumenta frequencia e cria um canal proprio da Dope House com quem ja treina ou quer comecar.</p>
+          <div class="app-story" aria-label="Narrativa do Dope App">
+            <div class="app-story-item"><b>Situacao</b><span>A casa ja atrai alunos pelo Instagram, Google e indicacoes.</span></div>
+            <div class="app-story-item"><b>Problema</b><span>Agenda, duvidas e modalidades ainda dependem de muitos contatos soltos.</span></div>
+            <div class="app-story-item"><b>Impacto</b><span>Interesse pode esfriar e a equipe gasta tempo em tarefas repetitivas.</span></div>
+            <div class="app-story-item"><b>Ganho</b><span>O app organiza agenda, presenca, eventos e relacionamento recorrente.</span></div>
+          </div>
+          <div class="grid" style="margin-top: 1.25rem;">
+            <article class="card">
+              <h3>Agenda</h3>
+              <p>Aulas, vagas, listas de espera e confirmacao por modalidade, sem depender de conversa manual.</p>
+            </article>
+            <article class="card">
+              <h3>Aluno</h3>
+              <p>Perfil, plano ativo, historico de presenca e notificacoes para manter o aluno proximo.</p>
+            </article>
+            <article class="card">
+              <h3>Gestao</h3>
+              <p>Painel para grade, parceiros, eventos e campanhas com leitura real da demanda.</p>
+            </article>
+          </div>
+        </div>
+        <div class="phone" aria-label="Previa de app">
+          <div class="screen">
+            <div class="screen-top">
+              <span>DOPE APP</span>
+              <span class="pill">Hoje</span>
+            </div>
+            <div class="slot">
+              <div>
+                <strong>Dope Training</strong>
+                <small>07:00 - Jardim</small>
+              </div>
+              <span class="pill">3 vagas</span>
+            </div>
+            <div class="slot">
+              <div>
+                <strong>Yoga</strong>
+                <small>09:00 - Ksa Yoga</small>
+              </div>
+              <span class="pill">Agendar</span>
+            </div>
+            <div class="slot">
+              <div>
+                <strong>Escalada</strong>
+                <small>18:30 - Granito</small>
+              </div>
+              <span class="pill">Lista</span>
+            </div>
+            <div class="slot">
+              <div>
+                <strong>Jiu-jitsu</strong>
+                <small>20:00 - Gracie Barra</small>
+              </div>
+              <span class="pill">Agendar</span>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section class="final" aria-labelledby="final-title">
+        <div>
+          <div class="eyebrow" style="color:#9c2f27;">Dope House Rio</div>
+          <h2 id="final-title">Comece pelo experimental</h2>
+          <p>Escolha uma modalidade, agende seu treino e venha conhecer a casa. Depois do primeiro contato, a Dope pode evoluir essa jornada para um app proprio com agenda, eventos e relacionamento com alunos.</p>
+        </div>
+        <a class="cta" href="https://wa.me/5521968654863">Chamar suporte</a>
+      </section>
+    </main>
+
+    <footer class="footer">
+      Estr. Francisco da Cruz Nunes, 6208 - Itaipu, Niteroi - RJ. MVP visual independente criado a partir de informacoes publicas da Dope House Rio.
+    </footer>
+  </div>
+</body>
+</html>
